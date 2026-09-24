@@ -1,717 +1,437 @@
 <!DOCTYPE html>
+
 <html lang="ru">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Sultan Club Gold</title>
 
-  <style>
+<style>
+
     * {
+
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
 
-    :root {
-      --green: #b8ff72;
-      --green-light: #d0ff9d;
-      --green-dark: #172516;
-      --card: rgba(19, 28, 19, 0.92);
-      --border: rgba(183, 255, 114, 0.16);
-      --text-muted: #8d9889;
-    }
-
-    html {
-      min-height: 100%;
-      background: #050a06;
     }
 
     body {
+
+      margin: 0;
+
       min-height: 100vh;
-      font-family: Arial, Helvetica, sans-serif;
+
+      background: #050505;
+
       color: #fff;
-      background:
-        radial-gradient(
-          circle at 50% 5%,
-          rgba(100, 170, 70, 0.16),
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 50% 55%,
-          rgba(55, 110, 45, 0.08),
-          transparent 42%
-        ),
-        #050a06;
+
+      font-family: Arial, sans-serif;
 
       display: flex;
+
       justify-content: center;
 
-      padding: 34px 16px 45px;
-      overflow-x: hidden;
-    }
+      padding: 30px 15px;
 
-    /* Лёгкий декоративный фон */
-    body::before {
-      content: "";
-      position: fixed;
-      width: 420px;
-      height: 420px;
-      left: 50%;
-      top: 180px;
-      transform: translateX(-50%);
-      border: 1px solid rgba(184, 255, 114, 0.055);
-      border-radius: 40% 60% 50% 50%;
-      pointer-events: none;
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      width: 360px;
-      height: 360px;
-      left: 50%;
-      top: 210px;
-      transform: translateX(-50%) rotate(28deg);
-      border: 1px solid rgba(184, 255, 114, 0.04);
-      border-radius: 50%;
-      pointer-events: none;
     }
 
     .container {
-      position: relative;
-      z-index: 2;
+
       width: 100%;
-      max-width: 750px;
+
+      max-width: 500px;
+
       text-align: center;
+
     }
 
-    /* =========================
-       АВАТАР
-       ========================= */
+    .avatar {
 
-    .photo {
-      position: relative;
+      width: 110px;
 
-      width: 112px;
-      height: 112px;
-
-      margin: 0 auto 17px;
+      height: 110px;
 
       border-radius: 50%;
-      overflow: hidden;
 
-      border: 2px solid var(--green);
-
-      box-shadow:
-        0 0 0 5px rgba(184, 255, 114, 0.04),
-        0 0 35px rgba(120, 220, 70, 0.16);
-    }
-
-    .photo img {
-      width: 100%;
-      height: 100%;
-      display: block;
       object-fit: cover;
-    }
 
-    /* =========================
-       НАЗВАНИЕ
-       ========================= */
+      border: 3px solid #d4af37;
+
+      margin-bottom: 15px;
+
+    }
 
     h1 {
-      font-size: 27px;
-      line-height: 1.15;
-      font-weight: 700;
 
-      letter-spacing: -0.5px;
+      margin: 0;
 
-      margin-bottom: 9px;
+      font-size: 30px;
+
+      color: #d4af37;
+
+    }
+
+    .subtitle {
+
+      margin-top: 8px;
+
+      color: #aaa;
+
+      font-size: 14px;
+
     }
 
     .badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
 
-      padding: 7px 13px;
+      display: inline-block;
+
+      margin-top: 12px;
+
+      padding: 6px 14px;
+
+      border: 1px solid #d4af37;
 
       border-radius: 20px;
 
-      background: rgba(29, 48, 25, 0.9);
-      border: 1px solid rgba(184, 255, 114, 0.32);
+      color: #d4af37;
 
-      color: #b8dc9c;
+      font-size: 12px;
 
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1.7px;
-
-      margin-bottom: 34px;
     }
-
-    /* маленькая зелёная точка */
-    .badge::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-
-      border-radius: 50%;
-      background: var(--green);
-
-      margin-right: 7px;
-
-      box-shadow: 0 0 8px rgba(184, 255, 114, 0.7);
-    }
-
-    /* =========================
-       КАРТОЧКИ
-       ========================= */
 
     .buttons {
+
+      margin-top: 30px;
+
       display: flex;
+
       flex-direction: column;
+
       gap: 14px;
 
-      text-align: left;
     }
 
     .button {
-      position: relative;
-
-      min-height: 104px;
 
       width: 100%;
 
-      display: flex;
-      align-items: center;
+      min-height: 78px;
 
-      padding: 15px 23px 15px 15px;
+      padding: 14px 18px;
 
-      border-radius: 23px;
+      border: 1px solid #252525;
 
-      text-decoration: none;
+      border-radius: 16px;
+
+      background: #0d0d0d;
+
       color: #fff;
 
-      background:
-        linear-gradient(
-          105deg,
-          rgba(30, 43, 28, 0.98),
-          rgba(13, 19, 14, 0.98)
-        );
+      text-decoration: none;
 
-      border: 1px solid var(--border);
+      display: flex;
 
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.025),
-        0 10px 35px rgba(0, 0, 0, 0.12);
+      align-items: center;
 
-      transition:
-        transform 0.2s ease,
-        border-color 0.2s ease,
-        background 0.2s ease,
-        box-shadow 0.2s ease;
+      text-align: left;
 
-      overflow: hidden;
-    }
+      transition: 0.2s ease;
 
-    .button::before {
-      content: "";
-
-      position: absolute;
-
-      left: -80px;
-      top: 0;
-
-      width: 160px;
-      height: 100%;
-
-      background: radial-gradient(
-        circle,
-        rgba(184, 255, 114, 0.08),
-        transparent 70%
-      );
-
-      pointer-events: none;
     }
 
     .button:hover {
+
+      border-color: #d4af37;
+
       transform: translateY(-2px);
 
-      border-color: rgba(184, 255, 114, 0.32);
-
-      box-shadow:
-        0 12px 35px rgba(0, 0, 0, 0.25),
-        0 0 25px rgba(130, 220, 70, 0.06);
     }
 
-    .button:active {
-      transform: scale(0.985);
+    .icon-box {
+
+      width: 48px;
+
+      height: 48px;
+
+      min-width: 48px;
+
+      border-radius: 12px;
+
+      background: #171717;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      margin-right: 14px;
+
     }
 
-    /* Совсем маленькие телефоны */
-    @media (max-width: 380px) {
+    .icon-box svg {
 
-      .button {
-        padding-right: 12px;
+      width: 26px;
+
+      height: 26px;
+
+      fill: #d4af37;
+
+    }
+
+    .button-text {
+
+      flex: 1;
+
+      min-width: 0;
+
+    }
+
+    .button-title {
+
+      font-size: 16px;
+
+      font-weight: 700;
+
+      margin-bottom: 5px;
+
+    }
+
+    .button-description {
+
+      color: #999;
+
+      font-size: 12px;
+
+      line-height: 1.35;
+
+    }
+
+    .arrow {
+
+      color: #d4af37;
+
+      font-size: 22px;
+
+      margin-left: 10px;
+
+    }
+
+    footer {
+
+      margin-top: 35px;
+
+      color: #555;
+
+      font-size: 11px;
+
+    }
+
+    @media (max-width: 600px) {
+
+      body {
+
+        padding: 25px 12px;
+
       }
 
-      .icon-box {
-        flex-basis: 62px;
-        width: 62px;
-        height: 62px;
+      .container {
 
-        margin-right: 12px;
+        max-width: 100%;
+
+      }
+
+      h1 {
+
+        font-size: 27px;
+
+      }
+
+      .button {
+
+        min-height: 74px;
+
+      }
+
+    }
+
+    @media (max-width: 380px) {
+
+      .avatar {
+
+        width: 95px;
+
+        height: 95px;
+
+      }
+
+      h1 {
+
+        font-size: 24px;
+
       }
 
       .button-title {
-        font-size: 17px;
+
+        font-size: 15px;
+
       }
 
       .button-description {
-        font-size: 12px;
+
+        font-size: 11px;
+
       }
 
-      .arrow {
-        font-size: 25px;
-      }
     }
+
   </style>
+
 </head>
 
 <body>
 
   <div class="container">
 
-    <!-- АВАТАР -->
-    <div class="photo">
-      <img
-        src="photo_2026-09-24_22-23-51.jpg"
-        alt="Sultan Club Gold"
-      >
-    </div>
+<img
 
-    <!-- НАЗВАНИЕ -->
-    <h1>Sultan Club Gold</h1>
+  class="avatar"
 
-    <div class="badge">
-      TRADER / GOLD CLUB
-    </div>
+  src="https://i.imgur.com/your-avatar.jpg"
 
-    <!-- ССЫЛКИ -->
-    <div class="buttons">
+  alt="Sultan Club Gold"
 
-      <!-- TELEGRAM -->
-      <a
-        class="button telegram"
-        href="https://t.me/sultanmyrFX"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+>
 
-        <div class="icon-box">
-          <!-- Telegram -->
-          <svg viewBox="0 0 24 24">
-            <path d="M21 3L3.7 9.7c-1.2.5-1.2 1.2-.2 1.5l4.4 1.4 1.7 5.3c.2.6.1.9.8.9.5 0 .7-.2 1-.9-0.6l2.1-2 4.4 3.2c.8.4 1.4.2 1.6-.8L21 3z"/>
-            <path d="M7.9 12.5l9.8-6.2"/>
-          </svg>
-        </div>
+<h1>Sultan Club Gold</h1>
 
-        <div class="button-text">
-          <div class="button-title">
-            Трейдинг-клуб
-          </div>
+<div class="subtitle">Личный финансовый блог</div>
 
-          <div class="button-description">
-            Торгуй со мной в прямом эфире
-          </div>
-        </div>
+<div class="badge">PRIVATE CLUB</div>
 
-        <div class="arrow">
-          ↗️
-        </div>
+<div class="buttons">
 
-      </a>
+  <a class="button" href="https://t.me/" target="_blank">
 
+    <div class="icon-box">
 
-      <!-- BROKER -->
-      <a
-        class="button"
-        href="#"
-        onclick="return false;"
-      >
+      <svg viewBox="0 0 24 24">
 
-        
-       /* =========================
-       ИКОНКА СЛЕВА
-       ========================= */
+        <path d="M21.5 3.5L18.3 20c-.2 1.2-.9 1.5-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L6.1 13.7 1.2 12.2c-1.1-.3-1.1-1.1.2-1.6L20.5 3c.9-.3 1.7.2 1 1.5z"/>
 
-    .icon-box {
-      flex: 0 0 76px;
-
-      width: 76px;
-      height: 76px;
-
-      border-radius: 19px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(40, 59, 37, 0.95),
-          rgba(20, 30, 20, 0.95)
-        );
-
-      border: 1px solid rgba(184, 255, 114, 0.20);
-
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.04);
-
-      margin-right: 18px;
-    }
-
-    .icon-box svg {
-      width: 34px;
-      height: 34px;
-
-      stroke: #b9e99c;
-
-      fill: none;
-
-      stroke-width: 1.8;
-
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    /* =========================
-       ТЕКСТ КАРТОЧКИ
-       ========================= */
-
-    .button-text {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .button-title {
-      font-size: 21px;
-      font-weight: 700;
-
-      line-height: 1.15;
-
-      margin-bottom: 7px;
-
-      color: #f6f8f3;
-    }
-
-    .button-description {
-      font-size: 14px;
-
-      line-height: 1.3;
-
-      color: var(--text-muted);
-
-      font-weight: 400;
-    }
-
-    /* =========================
-       СТРЕЛКА
-       ========================= */
-
-    .arrow {
-      flex: 0 0 auto;
-
-      width: 30px;
-      height: 30px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      margin-left: 12px;
-
-      color: #b7c4b0;
-
-      font-size: 31px;
-      font-weight: 300;
-
-      line-height: 1;
-
-      transition:
-        transform 0.2s ease,
-        color 0.2s ease;
-    }
-
-    .button:hover .arrow {
-      transform: translate(3px, -3px);
-      color: var(--green);
-    }
-
-    /* =========================
-       TELEGRAM — ЗЕЛЁНАЯ
-       ========================= */
-
-    .telegram {
-      background:
-        linear-gradient(
-          110deg,
-          rgba(43, 70, 31, 0.98),
-          rgba(20, 30, 20, 0.98)
-        );
-
-      border-color: rgba(184, 255, 114, 0.25);
-
-      box-shadow:
-        inset 0 0 40px rgba(154, 255, 88, 0.04),
-        0 10px 35px rgba(0, 0, 0, 0.15);
-    }
-
-    .telegram .icon-box {
-      background:
-        linear-gradient(
-          145deg,
-          rgba(151, 230, 89, 0.28),
-          rgba(57, 87, 42, 0.28)
-        );
-
-      border-color: rgba(184, 255, 114, 0.38);
-    }
-
-    .telegram .icon-box svg {
-      stroke: #c5ff9b;
-    }
-
-    /* =========================
-       YOUTUBE
-       ========================= */
-
-    .youtube .icon-box svg {
-      stroke: #b9e99c;
-    }
-
-    /* =========================
-       INSTAGRAM
-       ========================= */
-
-    .instagram .icon-box svg {
-      stroke: #b9e99c;
-    }
-
-    /* =========================
-       FOOTER
-       ========================= */
-
-    .footer {
-      margin-top: 35px;
-
-      padding-top: 20px;
-
-      border-top: 1px solid rgba(184, 255, 114, 0.08);
-
-      color: #536054;
-
-      font-size: 11px;
-
-      letter-spacing: 0.2px;
-    }
-
-    /* =========================
-       МОБИЛЬНАЯ ВЕРСИЯ
-       ========================= */
-
-    @media (max-width: 600px) {
-
-      body {
-        padding: 30px 16px 38px;
-      }
-
-      .container {
-        max-width: 100%;
-      }
-
-      .photo {
-        width: 106px;
-        height: 106px;
-
-        margin-bottom: 16px;
-      }
-
-      h1 {
-        font-size: 26px;
-      }
-
-      .badge {
-        margin-bottom: 29px;
-      }
-
-      .buttons {
-        gap: 13px;
-      }
-
-      .button {
-        min-height: 104px;
-
-        padding: 14px 16px 14px 13px;
-
-        border-radius: 21px;
-      }
-
-      .icon-box {
-        flex-basis: 68px;
-
-        width: 68px;
-        height: 68px;
-
-        border-radius: 17px;
-
-        margin-right: 15px;
-      }
-
-      .icon-box svg {
-        width: 30px;
-        height: 30px;
-      }
-
-      .button-title {
-        font-size: 19px;
-      }
-
-      .button-description {
-        font-size: 13px;
-      }
-
-      .arrow {
-        font-size: 28px;
-        width: 25px;
-        margin-left: 7px;
-      }
-    }
-    
-        <div class="icon-box">
-          <!-- Broker / Bank -->
-          <svg viewBox="0 0 24 24">
-            <path d="M3 9h18"/>
-            <path d="M4 9V7l8-4 8 4v2"/>
-            <path d="M6 10v7"/>
-            <path d="M10 10v7"/>
-            <path d="M14 10v7"/>
-            <path d="M18 10v7"/>
-            <path d="M3 19h18"/>
-            <path d="M2 21h20"/>
-          </svg>
-        </div>
-
-        <div class="button-text">
-          <div class="button-title">
-            Мой брокер
-          </div>
-
-          <div class="button-description">
-            Платформа, через которую я торгую
-          </div>
-        </div>
-
-        <div class="arrow">
-          ↗️
-        </div>
-
-      </a>
-
-
-      <!-- YOUTUBE -->
-      <a
-        class="button youtube"
-        href="https://youtube.com/@goldclubtrading?si=RFuHI7ED8cKqHDRh"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-
-        <div class="icon-box">
-          <!-- YouTube -->
-          <svg viewBox="0 0 24 24">
-            <rect
-              x="3"
-              y="6"
-              width="18"
-              height="12"
-              rx="4"
-            />
-            <path d="M10 9l5 3-5 3V9z"/>
-          </svg>
-        </div>
-
-        <div class="button-text">
-          <div class="button-title">
-            YouTube
-          </div>
-
-          <div class="button-description">
-            Бесплатные видео и уроки по трейдингу
-          </div>
-        </div>
-
-        <div class="arrow">
-          ↗️
-        </div>
-
-      </a>
-
-
-      <!-- INSTAGRAM -->
-      <a
-        class="button instagram"
-        href="https://www.instagram.com/so_tnikov?stkn=bW8xZTZ6dzl6YnU0&utm_source=qr"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-
-        <div class="icon-box">
-          <!-- Instagram -->
-          <svg viewBox="0 0 24 24">
-            <rect
-              x="3"
-              y="3"
-              width="18"
-              height="18"
-              rx="5"
-            />
-            <circle cx="12" cy="12" r="4"/>
-            <circle
-              cx="17.5"
-              cy="6.5"
-              r="0.8"
-              fill="#b9e99c"
-              stroke="none"
-            />
-          </svg>
-        </div>
-
-        <div class="button-text">
-          <div class="button-title">
-            Instagram
-          </div>
-
-          <div class="button-description">
-            Мой Instagram
-          </div>
-        </div>
-
-        <div class="arrow">
-          ↗️
-        </div>
-
-      </a>
+      </svg>
 
     </div>
 
-    <div class="footer">
-      © Sultan Club Gold
+    <div class="button-text">
+
+      <div class="button-title">Telegram</div>
+
+      <div class="button-description">
+
+        Новости, мысли и обновления клуба
+
+      </div>
+
     </div>
 
-  </div>
+    <div class="arrow">›</div>
+
+  </a>
+
+  <a class="button" href="#" onclick="return false;">
+
+    <div class="icon-box">
+
+      <svg viewBox="0 0 24 24">
+
+        <path d="M3 20h18v-2H3v2zm2-4h2V9H5v7zm4 0h2V4H9v12zm4 0h2v-6h-2v6zm4 0h2V7h-2v9z"/>
+
+      </svg>
+
+      </div>
+
+    <div class="button-text">
+
+      <div class="button-title">Мой брокер</div>
+
+      <div class="button-description">
+
+        Инвестиции и торговля
+
+      </div>
+
+    </div>
+
+    <div class="arrow">›</div>
+
+  </a>
+
+  <a class="button" href="https://www.youtube.com/" target="_blank">
+
+    <div class="icon-box">
+
+      <svg viewBox="0 0 24 24">
+
+        <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.5v-7l6.2 3.5-6.2 3.5z"/>
+
+      </svg>
+
+    </div>
+
+    <div class="button-text">
+
+      <div class="button-title">YouTube</div>
+
+      <div class="button-description">
+
+        Видео, обзоры и аналитика
+
+      </div>
+
+    </div>
+
+    <div class="arrow">›</div>
+
+  </a>
+
+  <a class="button" href="https://www.instagram.com/" target="_blank">
+
+    <div class="icon-box">
+
+      <svg viewBox="0 0 24 24">
+
+        <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.5 6a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/>
+
+      </svg>
+
+    </div>
+
+    <div class="button-text">
+
+      <div class="button-title">Instagram</div>
+
+      <div class="button-description">
+
+        Лайфстайл и личный контент
+
+      </div>
+
+    </div>
+
+    <div class="arrow">›</div>
+
+  </a>
+
+</div>
+
+<footer>© 2026 Sultan Club Gold</footer>
+
+ </div>
 
 </body>
+
 </html>
